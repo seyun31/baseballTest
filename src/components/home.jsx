@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import styled from "styled-components";
-import GlobalStyle from "./GlobalStyle"
+import GlobalStyle from "../style/GlobalStyle"
 import mainImage from "../assets/baseball.png";
 
-function App() {
+function Home() {
   return (
     <>
     <GlobalStyle />
@@ -18,7 +18,7 @@ function App() {
   )
 }
 
-export default App
+export default Home
 
 const Title = styled.h1`
   font-size: 32px;
@@ -50,7 +50,7 @@ const NameField = styled.input`
 const StartButton = styled.button`
   width: 173px;
   height: 59px;
-  background-color: #47E975;
+  background-color: #47e97580;
   color: black;
   font-size: 22px;
   border: none;
