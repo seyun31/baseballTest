@@ -8,6 +8,7 @@ import FourthStage from "../src/components/fourthStage";
 import FifthStage from "../src/components/fifthStage";
 import SixthStage from "../src/components/sixthStage";
 import SeventhStage from "../src/components/seventhStage";
+import Loading from "../src/components/loading";
 import GlobalStyle from "./style/GlobalStyle";
 
 createRoot(document.getElementById('root')).render(
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path='/5' element={<FifthStage />} />
                 <Route path='/6' element={<SixthStage />} />
                 <Route path='/7' element={<SeventhStage />} />
+                <Route path='/loading' element={<Loading />} />
             </Routes>
         </BrowserRouter>
     </>

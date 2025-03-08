@@ -2,7 +2,7 @@ import styled from "styled-components";
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar5 from "../assets/progressingBar5.png";
 
-function fifthStage() {
+function FifthStage() {
     return(
         <>
         <GlobalStyle />
@@ -15,7 +15,7 @@ function fifthStage() {
     )
 }
 
-export default fifthStage
+export default FifthStage
 
 const ProgressingBar = styled.img`
     display: block;
