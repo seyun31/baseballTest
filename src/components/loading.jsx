@@ -17,6 +17,7 @@ const Ball = styled.img`
   height: 70px;
   left: ${(props) => props.left}px;
   animation: ${fallAnimation} ${(props) => props.speed}s linear infinite;
+  z-index: -1;
 `;
 
 function Loading() {
