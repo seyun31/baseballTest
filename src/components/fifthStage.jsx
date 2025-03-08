@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import GlobalStyle from "../style/GlobalStyle"
-import progressingBar1 from "../assets/progressingBar1.png";
+import progressingBar5 from "../assets/progressingBar5.png";
 
-function firstStage() {
+function fifthStage() {
     return(
         <>
         <GlobalStyle />
-        <ProgressingBar src={progressingBar1} alt="상태바 1/7" />
-        <SubTitle>1 / 7</SubTitle>
-        <Title>중요한 선택을 할 때 {"\n"} 나는 ...</Title>
-        <ChoiceButton>감성적이다</ChoiceButton>
-        <ChoiceButton>이성적이다</ChoiceButton>
+        <ProgressingBar src={progressingBar5} alt="상태바 5/7" />
+        <SubTitle>5 / 7</SubTitle>
+        <Title>나의 퍼스널 컬러는? {"\n"} (나에게 잘 어울리는 톤)</Title>
+        <ChoiceButton>웜톤(빨강, 주황..)</ChoiceButton>
+        <ChoiceButton>쿨톤(파랑, 검정..)</ChoiceButton>
         </>
     )
 }
 
-export default firstStage
+export default fifthStage
 
 const ProgressingBar = styled.img`
     display: block;

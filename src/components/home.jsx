@@ -8,7 +8,7 @@ function Home() {
     <>
     <GlobalStyle />
       <Title>나랑 어울리는 {"\n"} <Blue>KBO</Blue> 야구팀은?</Title>
-      <Image src={mainImage} alt="메인 이미지" />
+      <LogoImage src={mainImage} alt="메인 이미지" />
       <NameField placeholder="이름을 입력하세요" />
       <StartButton>시작하기</StartButton>
       <CountParticipants>참여자수 | 230,200 명</CountParticipants>
@@ -24,16 +24,16 @@ const Title = styled.h1`
   font-size: 32px;
   text-align: center;
   white-space: pre-line;
-  `;
+`;
 
 const Blue = styled.span`
   color: blue;
-`
+`;
 
-const Image = styled.img`
+const LogoImage = styled.img`
   display: block;
   margin: auto;
-`
+`;
 
 const NameField = styled.input`
   width: 277px;
@@ -45,7 +45,7 @@ const NameField = styled.input`
   display: flex;
   text-align: center;
   margin-bottom: 20px;
-`
+`;
 
 const StartButton = styled.button`
   width: 173px;
@@ -58,12 +58,14 @@ const StartButton = styled.button`
   cursor: pointer;
   margin-left: 50px;
   justify-content: center;
-`
+`;
+
 const CountParticipants = styled.p`
   font-size: 16px;
   color: black;
   text-align: center;
-`
+`;
+
 const ShareTitle = styled.p`
   font-size: 18px;
   color: black;
