@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import mainImage from "../assets/baseball.png";
 
 function Home() {
   const [nickname, setNickname] = useState("");
+  const inputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setNickname(e.target.value);
+  };
+
+  const handleInputClick = (e) => {
+    if(inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  const handleStart = () => {
+    if(nickname) {
+      navigate("/1");
+    }
   };
 
 
@@ -19,9 +34,10 @@ function Home() {
       <NameField 
         placeholder="이름을 입력하세요"
         value={nickname}
-        onChange={handleInputChange} 
+        onChange={handleInputChange}
+        onClick={handleInputClick}
       />
-      <StartButton disabled={!nickname}>시작하기</StartButton>
+      <StartButton disabled={!nickname} onClick={handleStart}>시작하기</StartButton>
       <CountParticipants>참여자수 | 230,200 명</CountParticipants>
       <ShareTitle>테스트 공유하기 🔗</ShareTitle>
     </>
