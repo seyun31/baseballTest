@@ -1,17 +1,43 @@
+import { useState } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar3 from "../assets/progressingBar3.png";
 
 function ThirdStage() {
+    const [answer3, setAnswer3] = useState("");
+    const navigate = useNavigate();
+
+    const handleAnswer = (answer3) => {
+        setAnswer3(answer3);
+    }
+
+    const handleNext = () => {
+        if(answer3 !== "") {
+            navigate("/4");
+        }
+    }
+
+
     return(
         <>
         <GlobalStyle />
         <ProgressingBar src={progressingBar3} alt="상태바 3/7" />
         <SubTitle>3 / 7</SubTitle>
         <Title>내가 좋아하는 팀의 {"\n"} 우승 횟수가 ...</Title>
-        <ChoiceButton>많아야지! 올해도 우승!</ChoiceButton>
-        <ChoiceButton>적어도 돼! 앞으로 잘하자!</ChoiceButton>
-        <NextButton>➡️</NextButton>
+        <ChoiceButton
+            selected={answer3 === "많아야지! 올해도 우승!"}
+            onClick={() => handleAnswer("많아야지! 올해도 우승!")}
+        >
+            많아야지! 올해도 우승!
+        </ChoiceButton>
+        <ChoiceButton 
+            selected={answer3 === "적어도 돼! 앞으로 잘하자!"}
+            onClick={() => handleAnswer("적어도 돼! 앞으로 잘하자!")}
+        >
+            적어도 돼! 앞으로 잘하자!
+        </ChoiceButton>
+        <NextButton disabled={!answer3} onClick={handleNext}>➡️</NextButton>
         </>
     )
 }
@@ -41,7 +67,7 @@ const Title = styled.h1`
 const ChoiceButton = styled.button`
     width: 277px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: ${({ selected }) => (selected ? "#47E975" : "#FFFFFF")};
     color: black;
     font-size: 22px;
     border: none;
