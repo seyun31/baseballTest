@@ -41,7 +41,7 @@ const Title = styled.h1`
 const ChoiceButton = styled.button`
     width: 277px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: ${({ selected }) => (selected ? "#47E975" : "#FFFFFF")};
     color: black;
     font-size: 22px;
     border: none;

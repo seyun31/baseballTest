@@ -18,7 +18,6 @@ function SecondStage() {
         }
     }
 
-
     return(
         <>
         <GlobalStyle />

@@ -1,8 +1,23 @@
+import { useState } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar4 from "../assets/progressingBar4.png";
 
 function FourthStage() {
+    const [answer4, setAnswer4] = useState("");
+    const navigate = useNavigate();
+
+    const handleAnswer = (answer4) => {
+        setAnswer4(answer4);
+    }
+
+    const handleNext = () => {
+        if(answer4 !== "") {
+            navigate("/5");
+        }
+    }
+
     return(
         <>
         <GlobalStyle />
@@ -11,7 +26,7 @@ function FourthStage() {
         <Title>내가 좋아하는 팀의 {"\n"} 우승 횟수가 ...</Title>
         <ChoiceButton>많아야지! 올해도 우승!</ChoiceButton>
         <ChoiceButton>적어도 돼! 앞으로 잘하자!</ChoiceButton>
-        <NextButton>➡️</NextButton>
+        <NextButton disabled={!answer4} onClick={handleNext}>➡️</NextButton>
         </>
     )
 }
@@ -41,7 +56,7 @@ const Title = styled.h1`
 const ChoiceButton = styled.button`
     width: 277px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: ${({ selected }) => (selected ? "#47E975" : "#FFFFFF")};
     color: black;
     font-size: 22px;
     border: none;

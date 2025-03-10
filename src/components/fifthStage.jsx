@@ -1,17 +1,42 @@
+import { useState } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar5 from "../assets/progressingBar5.png";
 
 function FifthStage() {
+    const [answer5, setAnswer5] = useState("");
+    const navigate = useNavigate();
+
+    const handleAnswer = (answer5) => {
+        setAnswer5(answer5);
+    }
+
+    const handleNext = () => {
+        if(answer5 !== "") {
+            navigate("/6");
+        }
+    }
+
     return(
         <>
         <GlobalStyle />
         <ProgressingBar src={progressingBar5} alt="상태바 5/7" />
         <SubTitle>5 / 7</SubTitle>
         <Title>나의 퍼스널 컬러는? {"\n"} (나에게 잘 어울리는 톤)</Title>
-        <ChoiceButton>웜톤(빨강, 주황..)</ChoiceButton>
-        <ChoiceButton>쿨톤(파랑, 검정..)</ChoiceButton>
-        <NextButton>➡️</NextButton>
+        <ChoiceButton
+            selected={answer5 === "웜톤"}
+            onClick={() => handleAnswer("웜톤")}
+        >
+            웜톤(빨강, 주황..)
+        </ChoiceButton>
+        <ChoiceButton
+            selected={answer5 === "쿨톤"}
+            onClick={() => handleAnswer("쿨톤")}
+        >
+            쿨톤(파랑, 검정..)
+        </ChoiceButton>
+        <NextButton disabled={!answer5} onClick={handleNext}>➡️</NextButton>
         </>
     )
 }
@@ -41,7 +66,7 @@ const Title = styled.h1`
 const ChoiceButton = styled.button`
     width: 277px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: ${({ selected }) => (selected ? "#47E975" : "#FFFFFF")};
     color: black;
     font-size: 22px;
     border: none;
