@@ -1,17 +1,42 @@
+import { useState, useRef } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar1 from "../assets/progressingBar1.png";
 
 function FirstStage() {
+    const [answer1, setAnswer1] = useState("");
+    const navigate = useNavigate();
+
+    const handleAnswer = (answer1) => {
+        setAnswer1(answer1);
+    };
+
+    const handleNext = () => {
+        if(answer1 !== "") {
+            navigate("/2");
+        }
+    };
+
     return(
         <>
         <GlobalStyle />
         <ProgressingBar src={progressingBar1} alt="상태바 1/7" />
         <SubTitle>1 / 7</SubTitle>
         <Title>중요한 선택을 할 때 {"\n"} 나는 ...</Title>
-        <ChoiceButton>감성적이다</ChoiceButton>
-        <ChoiceButton>이성적이다</ChoiceButton>
-        <NextButton>➡️</NextButton>
+        <ChoiceButton
+            selected={answer1 === "감성적이다"}
+            onClick={() => handleAnswer("감성적이다")}
+        >
+            감성적이다
+        </ChoiceButton>
+        <ChoiceButton
+            selected={answer1 === "이성적이다"}
+            onClick={() => handleAnswer("이성적이다")}
+        >
+            이성적이다
+        </ChoiceButton>
+        <NextButton disabled={!answer1} onClick={handleNext}>➡️</NextButton>
         </>
     )
 }
@@ -41,7 +66,7 @@ const Title = styled.h1`
 const ChoiceButton = styled.button`
     width: 277px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: ${({ selected }) => (selected ? "#47E975" : "#FFFFFF")};
     color: black;
     font-size: 22px;
     border: none;
