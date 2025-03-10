@@ -1,17 +1,42 @@
+import { useState } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar6 from "../assets/progressingBar6.png";
 
 function SixthStage() {
+    const [answer6, setAnswer6] = useState("");
+    const navigate = useNavigate();
+
+    const handleAnswer = (answer6) => {
+        setAnswer6(answer6);
+    }
+
+    const handleNext = () => {
+        if(answer6 !== "") {
+            navigate("/7");
+        }
+    }
+
     return(
         <>
         <GlobalStyle />
         <ProgressingBar src={progressingBar6} alt="상태바 6/7" />
         <SubTitle>6 / 7</SubTitle>
         <Title>내가 좋아하는 팀을 {"\n"} 가을 야구에서 ...</Title>
-        <ChoiceButton>보고싶다!</ChoiceButton>
-        <ChoiceButton>못봐도 괜찮다.</ChoiceButton>
-        <NextButton>➡️</NextButton>
+        <ChoiceButton
+            selected={answer6 === "보고싶다!"}
+            onClick={() => handleAnswer("보고싶다!")}
+        >
+            보고싶다!
+        </ChoiceButton>
+        <ChoiceButton
+            selected={answer6 === "못봐도 괜찮다."}
+            onClick={() => handleAnswer("못봐도 괜찮다.")}
+        >
+            못봐도 괜찮다.
+        </ChoiceButton>
+        <NextButton disabled={!answer6} onClick={handleNext}>➡️</NextButton>
         </>
     )
 }
