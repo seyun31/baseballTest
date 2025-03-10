@@ -1,15 +1,31 @@
+import { useState } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar7 from "../assets/progressingBar7.png";
 
 function SeventhStage() {
+    const [answer7, setAnswer7] = useState("")
+    const navigate = useNavigate();
+
+    const handleAnswer = (e) => {
+        setAnswer7(e.target.value);
+    }
+
+    const handleNext = () => {
+        if(answer7 !== "") {
+            navigate("/loading");
+        }
+    }
+
     return(
         <>
         <GlobalStyle />
         <ProgressingBar src={progressingBar7} alt="상태바 7/7" />
         <SubTitle>7 / 7</SubTitle>
         <Title>나의 고향은</Title>
-        <ChoiceList>
+        <ChoiceList value={answer7} onChange={handleAnswer}>
+            <option value="" disabled hidden>지역 선택</option>
             <option value="서울">서울</option>
             <option value="경기 / 인천">경기 / 인천</option>
             <option value="경상">경상</option>
@@ -17,7 +33,7 @@ function SeventhStage() {
             <option value="전라">전라</option>
             <option value="기타">기타</option>
         </ChoiceList>
-        <NextButton>✅</NextButton>
+        <NextButton disabled={!answer7} onClick={handleNext}>✅</NextButton>
         </>
     )
 }
