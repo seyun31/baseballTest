@@ -11,6 +11,7 @@ function FirstStage() {
         <Title>중요한 선택을 할 때 {"\n"} 나는 ...</Title>
         <ChoiceButton>감성적이다</ChoiceButton>
         <ChoiceButton>이성적이다</ChoiceButton>
+        <NextButton>➡️</NextButton>
         </>
     )
 }
@@ -49,4 +50,18 @@ const ChoiceButton = styled.button`
     margin-left: 50px;
     margin-bottom: 42px;
     justify-content: center;
+`;
+
+const NextButton = styled.button`
+    width: 50px;
+    height: 50px;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 20px;
+    right: 76px; 
 `;

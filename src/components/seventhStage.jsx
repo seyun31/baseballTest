@@ -17,6 +17,7 @@ function SeventhStage() {
             <option value="전라">전라</option>
             <option value="기타">기타</option>
         </ChoiceList>
+        <NextButton>✅</NextButton>
         </>
     )
 }
@@ -61,4 +62,18 @@ const ChoiceList = styled.select`
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+`;
+
+const NextButton = styled.button`
+    width: 50px;
+    height: 50px;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 20px;
+    right: 76px; 
 `;

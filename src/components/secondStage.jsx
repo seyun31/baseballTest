@@ -11,6 +11,7 @@ function SecondStage() {
         <Title>나랑 같은 팀을 응원하는 {"\n"} 팬들이 ...</Title>
         <ChoiceButton>많았으면 좋겠다</ChoiceButton>
         <ChoiceButton>적었으면 좋겠다</ChoiceButton>
+        <NextButton>➡️</NextButton>
         </>
     )
 }
@@ -49,4 +50,18 @@ const ChoiceButton = styled.button`
     margin-left: 50px;
     margin-bottom: 42px;
     justify-content: center;
+`;
+
+const NextButton = styled.button`
+    width: 50px;
+    height: 50px;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 20px;
+    right: 76px; 
 `;

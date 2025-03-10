@@ -11,6 +11,7 @@ function SixthStage() {
         <Title>내가 좋아하는 팀을 {"\n"} 가을 야구에서 ...</Title>
         <ChoiceButton>보고싶다!</ChoiceButton>
         <ChoiceButton>못봐도 괜찮다.</ChoiceButton>
+        <NextButton>➡️</NextButton>
         </>
     )
 }
@@ -49,4 +50,18 @@ const ChoiceButton = styled.button`
     margin-left: 50px;
     margin-bottom: 42px;
     justify-content: center;
+`;
+
+const NextButton = styled.button`
+    width: 50px;
+    height: 50px;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 20px;
+    right: 76px; 
 `;

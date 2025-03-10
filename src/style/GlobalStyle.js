@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   html {
+    position: relative;
     background-color: #FFEB6D;
     margin: 0;
     padding: 0;

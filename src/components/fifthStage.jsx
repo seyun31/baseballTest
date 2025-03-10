@@ -11,6 +11,7 @@ function FifthStage() {
         <Title>나의 퍼스널 컬러는? {"\n"} (나에게 잘 어울리는 톤)</Title>
         <ChoiceButton>웜톤(빨강, 주황..)</ChoiceButton>
         <ChoiceButton>쿨톤(파랑, 검정..)</ChoiceButton>
+        <NextButton>➡️</NextButton>
         </>
     )
 }
@@ -49,4 +50,18 @@ const ChoiceButton = styled.button`
     margin-left: 50px;
     margin-bottom: 42px;
     justify-content: center;
+`;
+
+const NextButton = styled.button`
+    width: 50px;
+    height: 50px;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 20px;
+    right: 76px; 
 `;
