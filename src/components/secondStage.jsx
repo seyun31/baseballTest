@@ -1,17 +1,43 @@
+import { useState } from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import progressingBar2 from "../assets/progressingBar2.png";
 
 function SecondStage() {
+    const [answer2, setAnswer2] = useState("");
+    const navigate = useNavigate();
+
+    const handleAnswer = (answer2) => {
+        setAnswer2(answer2);
+    }
+
+    const handleNext = () => {
+        if(answer2 !== "") {
+            navigate('/3');
+        }
+    }
+
+
     return(
         <>
         <GlobalStyle />
         <ProgressingBar src={progressingBar2} alt="상태바 2/7" />
         <SubTitle>2 / 7</SubTitle>
         <Title>나랑 같은 팀을 응원하는 {"\n"} 팬들이 ...</Title>
-        <ChoiceButton>많았으면 좋겠다</ChoiceButton>
-        <ChoiceButton>적었으면 좋겠다</ChoiceButton>
-        <NextButton>➡️</NextButton>
+        <ChoiceButton
+            selected={answer2 === "많았으면 좋겠다"}
+            onClick={() => handleAnswer("많았으면 좋겠다")}
+        >
+            많았으면 좋겠다
+        </ChoiceButton>
+        <ChoiceButton
+            selected={answer2 === "적었으면 좋겠다"}
+            onClick={() => handleAnswer("적었으면 좋겠다")}
+        >
+            적었으면 좋겠다
+        </ChoiceButton>
+        <NextButton disabled={!answer2} onClick={handleNext}>➡️</NextButton>
         </>
     )
 }
@@ -41,7 +67,7 @@ const Title = styled.h1`
 const ChoiceButton = styled.button`
     width: 277px;
     height: 59px;
-    background-color: #FFFFFF;
+    background-color: ${({ selected }) => (selected ? "#47E975" : "#FFFFFF")};
     color: black;
     font-size: 22px;
     border: none;
