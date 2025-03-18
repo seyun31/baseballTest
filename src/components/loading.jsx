@@ -23,13 +23,13 @@ const Ball = styled.img`
 
 function Loading() {
   const [balls, setBalls] = useState([]);
-  const navigate = useNavigate(); // 페이지 이동을 위한 navigate 추가
+  const navigate = useNavigate();
 
   useEffect(() => {
     // 3초 후 /result 페이지로 이동
     const timer = setTimeout(() => {
       navigate("/result");
-    }, 3000);
+    }, 2000);
 
     const createBalls = () => {
       const newBalls = Array.from({ length: 100 }).map(() => ({
@@ -52,8 +52,8 @@ function Loading() {
   return (
     <>
       <GlobalStyle />
-      <LoadingImage src={loadingImage} alt="모래시계 이미지" />
-      <Title>결과 분석중 ...</Title>
+      <LoadingImage src={loadingImage} alt="야구선수 이미지" />
+      <Title>결과 분석중 ... ~</Title>
       {balls.map((ball) => (
         <Ball key={ball.id} src={ballImage} alt="떨어지는 공" left={ball.left} speed={ball.speed} />
       ))}

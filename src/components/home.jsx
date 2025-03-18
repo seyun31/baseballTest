@@ -11,7 +11,11 @@ function Home() {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    setNickname(e.target.value);
+    const newNickname = e.target.value;
+
+    if (newNickname.length <= 6) {
+      setNickname(newNickname);
+    }
   };
 
   const handleInputClick = (e) => {
