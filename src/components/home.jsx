@@ -106,7 +106,7 @@ const StartButton = styled.button`
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin-left: 18%;
+  margin-left: 20%;
   margin-bottom: 15px;
   justify-content: center;
 `;
