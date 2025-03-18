@@ -103,7 +103,6 @@ function Result() {
   font-size: 32px;
   text-align: center;
   white-space: pre-line;
-  margin-bottom: 42px;
   `;
   
   const ResetButton = styled.button`
@@ -115,22 +114,32 @@ function Result() {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    margin-left: 25%;
     justify-content: center;
-  `;
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%); 
+    `;
   
   const ShareTitle = styled.p`
     font-size: 18px;
     color: black;
     font-weight: 600;
-    margin-left: 7%;
     text-align: center;
+    position: absolute;
+    bottom: 115px;
+    left: 50%;
+    transform: translateX(-50%); 
   `;
 
   const ShareImage = styled.img`
   display: block;
   margin: auto;
   cursor: pointer;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%); 
   `;
 
   const MainImage = styled.img`
