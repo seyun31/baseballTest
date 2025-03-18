@@ -25,14 +25,14 @@ function FourthStage() {
         <SubTitle>4 / 7</SubTitle>
         <Title>나는 평소에 {"\n"} 인내심이 ...</Title>
         <ChoiceButton
-            selected={answer4 === "많은편이다"}
-            onClick={() => handleAnswer("많은편이다")}
+            selected={answer4 === "한 롯 엔 키"}
+            onClick={() => handleAnswer("한 롯 엔 키")}
         >
             많은편이다
         </ChoiceButton>
         <ChoiceButton
-            selected={answer4 === "적은편이다"}
-            onClick={() => handleAnswer("적은편이다")}
+            selected={answer4 === "기 엘 삼 두 쓱 케"}
+            onClick={() => handleAnswer("기 엘 삼 두 쓱 케")}
         >
             적은편이다
         </ChoiceButton>

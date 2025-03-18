@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 
 function Result() {
+    const [nickname, setNickname] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const savedNickname = sessionStorage.getItem("nickname");
+        if (savedNickname) {
+            setNickname(savedNickname);
+        }
+    }, []);
 
     const handleStart = () => {
           navigate("/");
@@ -13,7 +21,7 @@ function Result() {
     return (
       <>
       <GlobalStyle />
-        <Title>00님과 어울리는 야구팀은 00입니다!</Title>
+        <Title>{nickname}님과 어울리는 야구팀은 00입니다!</Title>
         <StartButton onClick={handleStart}>다시하기</StartButton>
         <ShareTitle>테스트 공유하기 🔗</ShareTitle>
       </>

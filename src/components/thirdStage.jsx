@@ -25,14 +25,14 @@ function ThirdStage() {
         <SubTitle>3 / 7</SubTitle>
         <Title>내가 좋아하는 팀의 {"\n"} 우승 횟수가 ...</Title>
         <ChoiceButton
-            selected={answer3 === "많아야지! 올해도 우승!"}
-            onClick={() => handleAnswer("많아야지! 올해도 우승!")}
+            selected={answer3 === "기 삼 두 쓱"}
+            onClick={() => handleAnswer("기 삼 두 쓱")}
         >
             많아야지! 올해도 우승!
         </ChoiceButton>
         <ChoiceButton 
-            selected={answer3 === "적어도 돼! 앞으로 잘하자!"}
-            onClick={() => handleAnswer("적어도 돼! 앞으로 잘하자!")}
+            selected={answer3 === "엘 롯 한 엔 키 케"}
+            onClick={() => handleAnswer("엘 롯 한 엔 키 케")}
         >
             적어도 돼! 앞으로 잘하자!
         </ChoiceButton>

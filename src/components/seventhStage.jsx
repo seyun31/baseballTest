@@ -10,6 +10,7 @@ function SeventhStage() {
 
     const handleAnswer = (e) => {
         setAnswer7(e.target.value);
+        console.log(answer7);
     }
 
     const handleNext = () => {
@@ -26,12 +27,12 @@ function SeventhStage() {
         <Title>나의 고향은</Title>
         <ChoiceList value={answer7} onChange={handleAnswer}>
             <option value="" disabled hidden>지역 선택</option>
-            <option value="서울">서울</option>
-            <option value="경기 / 인천">경기 / 인천</option>
-            <option value="경상">경상</option>
-            <option value="충청">충청</option>
-            <option value="전라">전라</option>
-            <option value="기타">기타</option>
+            <option value="엘 두 키">서울</option>
+            <option value="케 쓱">경기 / 인천</option>
+            <option value="삼 롯 엔">경상</option>
+            <option value="한">충청</option>
+            <option value="기">전라</option>
+            <option value=" ">기타</option>
         </ChoiceList>
         <NextButton disabled={!answer7} onClick={handleNext}>✅</NextButton>
         </>

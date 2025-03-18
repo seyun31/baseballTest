@@ -25,14 +25,14 @@ function FifthStage() {
         <SubTitle>5 / 7</SubTitle>
         <Title>나의 퍼스널 컬러는? {"\n"} (나에게 잘 어울리는 톤)</Title>
         <ChoiceButton
-            selected={answer5 === "웜톤"}
-            onClick={() => handleAnswer("웜톤")}
+            selected={answer5 === "쓱 한 키 기 엘"}
+            onClick={() => handleAnswer("쓱 한 키 기 엘")}
         >
             웜톤(빨강, 주황..)
         </ChoiceButton>
         <ChoiceButton
-            selected={answer5 === "쿨톤"}
-            onClick={() => handleAnswer("쿨톤")}
+            selected={answer5 === "두 삼 롯 케 엔"}
+            onClick={() => handleAnswer("두 삼 롯 케 엔")}
         >
             쿨톤(파랑, 검정..)
         </ChoiceButton>

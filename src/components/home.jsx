@@ -22,6 +22,7 @@ function Home() {
 
   const handleStart = () => {
     if(nickname) {
+      sessionStorage.setItem("nickname", nickname);
       navigate("/1");
     }
   };

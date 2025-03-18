@@ -25,14 +25,14 @@ function SixthStage() {
         <SubTitle>6 / 7</SubTitle>
         <Title>내가 좋아하는 팀을 {"\n"} 가을 야구에서 ...</Title>
         <ChoiceButton
-            selected={answer6 === "보고싶다!"}
-            onClick={() => handleAnswer("보고싶다!")}
+            selected={answer6 === "엘 기 삼 두 케 쓱"}
+            onClick={() => handleAnswer("엘 기 삼 두 케 쓱")}
         >
             보고싶다!
         </ChoiceButton>
         <ChoiceButton
-            selected={answer6 === "못봐도 괜찮다."}
-            onClick={() => handleAnswer("못봐도 괜찮다.")}
+            selected={answer6 === "한 롯 키 엔"}
+            onClick={() => handleAnswer("한 롯 키 엔")}
         >
             못봐도 괜찮다.
         </ChoiceButton>

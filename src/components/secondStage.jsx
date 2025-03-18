@@ -25,14 +25,14 @@ function SecondStage() {
         <SubTitle>2 / 7</SubTitle>
         <Title>나랑 같은 팀을 응원하는 {"\n"} 팬들이 ...</Title>
         <ChoiceButton
-            selected={answer2 === "많았으면 좋겠다"}
-            onClick={() => handleAnswer("많았으면 좋겠다")}
+            selected={answer2 === "기 한 롯 엘 삼"}
+            onClick={() => handleAnswer("기 한 롯 엘 삼")}
         >
             많았으면 좋겠다
         </ChoiceButton>
         <ChoiceButton
-            selected={answer2 === "적었으면 좋겠다"}
-            onClick={() => handleAnswer("적었으면 좋겠다")}
+            selected={answer2 === "두 쓱 엔 키 케"}
+            onClick={() => handleAnswer("두 쓱 엔 키 케")}
         >
             적었으면 좋겠다
         </ChoiceButton>
