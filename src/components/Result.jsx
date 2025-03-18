@@ -103,6 +103,10 @@ function Result() {
   font-size: 32px;
   text-align: center;
   white-space: pre-line;
+  position: absolute;
+  bottom: 230px;
+  left: 50%;
+  transform: translateX(-50%); 
   `;
   
   const ResetButton = styled.button`
@@ -145,4 +149,8 @@ function Result() {
   const MainImage = styled.img`
   display: block;
   margin: auto;
+  position: absolute;
+  bottom: 480px;
+  left: 50%;
+  transform: translateX(-50%); 
   `;
