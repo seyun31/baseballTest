@@ -10,7 +10,6 @@ function SeventhStage() {
 
     const handleAnswer = (e) => {
         setAnswer7(e.target.value);
-        console.log(answer7);
     }
 
     const handleNext = () => {

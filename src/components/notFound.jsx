@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import GlobalStyle from "../style/GlobalStyle";
 import Image404 from "../assets/Image404.png";
 
