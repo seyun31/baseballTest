@@ -23,9 +23,19 @@ function FourthStage() {
         <GlobalStyle />
         <ProgressingBar src={progressingBar4} alt="상태바 4/7" />
         <SubTitle>4 / 7</SubTitle>
-        <Title>내가 좋아하는 팀의 {"\n"} 우승 횟수가 ...</Title>
-        <ChoiceButton>많아야지! 올해도 우승!</ChoiceButton>
-        <ChoiceButton>적어도 돼! 앞으로 잘하자!</ChoiceButton>
+        <Title>나는 평소에 {"\n"} 인내심이 ...</Title>
+        <ChoiceButton
+            selected={answer4 === "많은편이다"}
+            onClick={() => handleAnswer("많은편이다")}
+        >
+            많은편이다
+        </ChoiceButton>
+        <ChoiceButton
+            selected={answer4 === "적은편이다"}
+            onClick={() => handleAnswer("적은편이다")}
+        >
+            적은편이다
+        </ChoiceButton>
         <NextButton disabled={!answer4} onClick={handleNext}>➡️</NextButton>
         </>
     )
