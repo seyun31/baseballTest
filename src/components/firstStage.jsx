@@ -81,6 +81,7 @@ const ChoiceButton = styled.button`
 const NextButton = styled.button`
     width: 50px;
     height: 50px;
+    background-color: #FFEB6D;
     font-size: 64px;
     display: flex;
     align-items: center;
