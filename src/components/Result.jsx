@@ -150,7 +150,7 @@ function Result() {
   display: block;
   margin: auto;
   position: absolute;
-  bottom: 480px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%); 
   `;
