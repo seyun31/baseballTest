@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
 import mainImage from "../assets/baseball.png";
+import shareImage from "../assets/share.png";
 
 function Home() {
   const [nickname, setNickname] = useState("");
@@ -25,6 +26,16 @@ function Home() {
     }
   };
 
+  const handleShareClick = async () => {
+    try {
+      const currentUrl = window.location.href; // 현재 페이지 URL 가져오기
+      await navigator.clipboard.writeText(currentUrl); // 클립보드에 복사
+      alert("링크 복사 완료! 😝");
+    } catch (err) {
+      console.error("링크 복사 실패:", err);
+      alert("링크 복사 실패 😢"); 
+    }
+  };
 
   return (
     <>
@@ -40,6 +51,7 @@ function Home() {
       <StartButton disabled={!nickname} onClick={handleStart}>시작하기</StartButton>
       <CountParticipants>참여자수 | 230,200 명</CountParticipants>
       <ShareTitle>테스트 공유하기 🔗</ShareTitle>
+      <ShareImage src={shareImage} alt="공유하기 이미지" onClick={handleShareClick} />
     </>
 
   )
@@ -60,6 +72,12 @@ const Blue = styled.span`
 const LogoImage = styled.img`
   display: block;
   margin: auto;
+`;
+
+const ShareImage = styled.img`
+  display: block;
+  margin: auto;
+  cursor: pointer;
 `;
 
 const NameField = styled.input`
@@ -84,6 +102,7 @@ const StartButton = styled.button`
   border-radius: 30px;
   cursor: pointer;
   margin-left: 50px;
+  margin-bottom: 15px;
   justify-content: center;
 `;
 
@@ -91,6 +110,7 @@ const CountParticipants = styled.p`
   font-size: 16px;
   color: black;
   text-align: center;
+  margin-bottom: 20px;
 `;
 
 const ShareTitle = styled.p`

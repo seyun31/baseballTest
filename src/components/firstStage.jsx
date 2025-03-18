@@ -10,6 +10,7 @@ function FirstStage() {
 
     const handleAnswer = (answer1) => {
         setAnswer1(answer1);
+        console.log(answer1);
     };
 
     const handleNext = () => {
@@ -25,14 +26,14 @@ function FirstStage() {
         <SubTitle>1 / 7</SubTitle>
         <Title>중요한 선택을 할 때 {"\n"} 나는 ...</Title>
         <ChoiceButton
-            selected={answer1 === "감성적이다"}
-            onClick={() => handleAnswer("감성적이다")}
+            selected={answer1 === "한 롯 기 삼 엘"}
+            onClick={() => handleAnswer("한 롯 기 삼 엘")}
         >
             감성적이다
         </ChoiceButton>
         <ChoiceButton
-            selected={answer1 === "이성적이다"}
-            onClick={() => handleAnswer("이성적이다")}
+            selected={answer1 === "쓱 두 엔 키 케"}
+            onClick={() => handleAnswer("쓱 두 엔 키 케")}
         >
             이성적이다
         </ChoiceButton>
