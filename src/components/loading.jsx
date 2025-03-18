@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // 페이지 이동을 위한 useNavigate 추가
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../style/GlobalStyle";
-import loadingImage from "../assets/loadingImage.png";
+import loadingImage from "../assets/LoadingImage.png";
 import ballImage from "../assets/ball.png";
 
 // 떨어지는 애니메이션

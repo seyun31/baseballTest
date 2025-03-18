@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
-import progressingBar1 from "../assets/progressingBar1.png";
+import progressingBar1 from "../assets/ProgressingBar1.png";
 
 function FirstStage() {
     const [answer1, setAnswer1] = useState("");

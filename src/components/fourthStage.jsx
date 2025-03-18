@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
-import progressingBar4 from "../assets/progressingBar4.png";
+import progressingBar4 from "../assets/ProgressingBar4.png";
 
 function FourthStage() {
     const [answer4, setAnswer4] = useState("");
