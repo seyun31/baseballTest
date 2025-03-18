@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // 페이지 이동을 위한 useNavigate 추가
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../style/GlobalStyle";
 import loadingImage from "../assets/loadingImage.png";
@@ -22,13 +23,19 @@ const Ball = styled.img`
 
 function Loading() {
   const [balls, setBalls] = useState([]);
+  const navigate = useNavigate(); // 페이지 이동을 위한 navigate 추가
 
   useEffect(() => {
+    // 3초 후 /result 페이지로 이동
+    const timer = setTimeout(() => {
+      navigate("/result");
+    }, 3000);
+
     const createBalls = () => {
-      const newBalls = Array.from({ length: 100 }).map(() => ({ // 공 개수 증가
+      const newBalls = Array.from({ length: 100 }).map(() => ({
         id: Math.random(),
-        left: Math.random() * window.innerWidth, // 랜덤 X 위치
-        speed: Math.random() * 3 + 1, // 랜덤 속도 (7초 ~ 10초)
+        left: Math.random() * window.innerWidth,
+        speed: Math.random() * 3 + 1,
       }));
       setBalls(newBalls);
     };
@@ -36,22 +43,19 @@ function Loading() {
     createBalls();
     window.addEventListener("resize", createBalls);
 
-    return () => window.removeEventListener("resize", createBalls);
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", createBalls);
+    };
+  }, [navigate]);
 
   return (
     <>
-    <GlobalStyle />
+      <GlobalStyle />
       <LoadingImage src={loadingImage} alt="모래시계 이미지" />
       <Title>결과 분석중 ...</Title>
       {balls.map((ball) => (
-        <Ball
-          key={ball.id}
-          src={ballImage}
-          alt="떨어지는 공"
-          left={ball.left} // X 위치 설정
-          speed={ball.speed} // 애니메이션 속도 설정
-        />
+        <Ball key={ball.id} src={ballImage} alt="떨어지는 공" left={ball.left} speed={ball.speed} />
       ))}
     </>
   );

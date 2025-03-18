@@ -14,6 +14,7 @@ function SecondStage() {
 
     const handleNext = () => {
         if(answer2 !== "") {
+            sessionStorage.setItem("answer2", answer2);
             navigate('/3');
         }
     }

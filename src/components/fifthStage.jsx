@@ -14,6 +14,7 @@ function FifthStage() {
 
     const handleNext = () => {
         if(answer5 !== "") {
+            sessionStorage.setItem("answer5", answer5);
             navigate("/6");
         }
     }

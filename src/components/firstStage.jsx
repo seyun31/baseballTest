@@ -10,11 +10,11 @@ function FirstStage() {
 
     const handleAnswer = (answer1) => {
         setAnswer1(answer1);
-        console.log(answer1);
     };
 
     const handleNext = () => {
         if(answer1 !== "") {
+            sessionStorage.setItem("answer1", answer1);
             navigate("/2");
         }
     };
@@ -26,14 +26,14 @@ function FirstStage() {
         <SubTitle>1 / 7</SubTitle>
         <Title>중요한 선택을 할 때 {"\n"} 나는 ...</Title>
         <ChoiceButton
-            selected={answer1 === "한 롯 기 삼 엘"}
-            onClick={() => handleAnswer("한 롯 기 삼 엘")}
+            selected={answer1 === "한 롯 기 삼 엘 "}
+            onClick={() => handleAnswer("한 롯 기 삼 엘 ")}
         >
             감성적이다
         </ChoiceButton>
         <ChoiceButton
-            selected={answer1 === "쓱 두 엔 키 케"}
-            onClick={() => handleAnswer("쓱 두 엔 키 케")}
+            selected={answer1 === "쓱 두 엔 키 케 "}
+            onClick={() => handleAnswer("쓱 두 엔 키 케 ")}
         >
             이성적이다
         </ChoiceButton>
