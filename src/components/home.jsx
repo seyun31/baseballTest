@@ -15,18 +15,23 @@ function Home() {
 
   useEffect(() => {
     const fetchVisitorCount = async () => {
-      const countRef = doc(db, "stats", "visitorCount");
-      const countSnap = await getDoc(countRef);
+      try {
+        const countRef = doc(db, "stats", "visitorCount");
+        const countSnap = await getDoc(countRef);
 
-      if (countSnap.exists()) {
-        setVisitorCount(countSnap.data.count);
-      } else {
-        await setDoc(countRef, { count : 0});
+        if (countSnap.exists()) {
+          setVisitorCount(countSnap.data().count); // 최신 데이터 반영
+        } else {
+          await setDoc(countRef, { count: 0 }); // 초기값 설정
+          setVisitorCount(0);
+        }
+      } catch (error) {
+        console.error("방문자 수 가져오기 실패:", error);
       }
     };
 
     fetchVisitorCount();
-  }, []);
+  }, []); // 첫 렌더링 때만 실행
 
   const handleInputChange = (e) => {
     const newNickname = e.target.value;
@@ -43,19 +48,24 @@ function Home() {
   };
 
   const handleStart = async () => {
-    if(nickname) {
+    if (nickname) {
       sessionStorage.setItem("nickname", nickname);
       navigate("/1");
 
-      const countRef = doc(db, "stats", "visitorCount");
-      const countSnap = await getDoc(countRef);
+      try {
+        const countRef = doc(db, "stats", "visitorCount");
+        const countSnap = await getDoc(countRef);
 
-      if(countSnap.exists()) {
-        await updateDoc(countRef, { count : countSnap.data().count + 1});
-        setVisitorCount(countSnap.data().count + 1);
-      } else {
-        await setDoc(countRef, {count : 1});
-        setVisitorCount(1);
+        if (countSnap.exists()) {
+          const newCount = countSnap.data().count + 1;
+          await updateDoc(countRef, { count: newCount });
+          setVisitorCount(newCount); // 최신 값 반영
+        } else {
+          await setDoc(countRef, { count: 1 });
+          setVisitorCount(1);
+        }
+      } catch (error) {
+        console.error("방문자 수 업데이트 실패:", error);
       }
     }
   };
