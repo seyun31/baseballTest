@@ -87,70 +87,66 @@ function Result() {
 
     return (
       <>
-      <GlobalStyle />
-        <MainImage src={teamImages[team]} alt={`${team} 메인 이미지`} />
-        <Title>{nickname}님께 {"\n"} 어울리는 야구팀은 {"\n"}{team}!</Title>
-        <ResetButton onClick={handleStart}>다시하기</ResetButton>
-        <ShareTitle>테스트 공유하기 🔗</ShareTitle>
-        <ShareImage src={shareImage} alt="공유하기 이미지" onClick={handleShareClick} />
+      <Container>
+        <GlobalStyle />
+          <MainImage src={teamImages[team]} alt={`${team} 메인 이미지`} />
+          <Title>{nickname}님께 {"\n"} 어울리는 야구팀은 {"\n"}{team}!</Title>
+          <ResetButton onClick={handleStart}>다시하기</ResetButton>
+          <ShareTitle>테스트 공유하기 🔗</ShareTitle>
+          <ShareImage src={shareImage} alt="공유하기 이미지" onClick={handleShareClick} />
+      </Container>
+
       </>
     )
   }
   
   export default Result
   
-  const Title = styled.h1`
+  const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+`;
+
+const Title = styled.h1`
   font-size: 32px;
   text-align: center;
   white-space: pre-line;
-  position: absolute;
-  bottom: 230px;
-  left: 50%;
-  transform: translateX(-50%); 
-  `;
-  
-  const ResetButton = styled.button`
-    width: 173px;
-    height: 59px;
-    background-color: #47E975;
-    color: black;
-    font-size: 22px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    justify-content: center;
-    position: absolute;
-    bottom: 170px;
-    left: 50%;
-    transform: translateX(-50%); 
-    `;
-  
-  const ShareTitle = styled.p`
-    font-size: 18px;
-    color: black;
-    font-weight: 600;
-    text-align: center;
-    position: absolute;
-    bottom: 115px;
-    left: 50%;
-    transform: translateX(-50%); 
-  `;
+  margin-bottom: 20px;
+`;
 
-  const ShareImage = styled.img`
-  display: block;
-  margin: auto;
+const ResetButton = styled.button`
+  width: 173px;
+  height: 59px;
+  background-color: #47E975;
+  color: black;
+  font-size: 22px;
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%); 
-  `;
+  margin-top: 10px;
+`;
 
-  const MainImage = styled.img`
-  display: block;
-  margin: auto;
-  position: absolute;
-  top: 150px;
-  left: 50%;
-  transform: translateX(-50%); 
-  `;
+const ShareTitle = styled.p`
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+`;
+
+const ShareImage = styled.img`
+  width: 50px;
+  cursor: pointer;
+  margin-top: 10px;
+`;
+
+const MainImage = styled.img`
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+`;
