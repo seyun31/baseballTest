@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { count, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
@@ -20,10 +20,8 @@ function Home() {
 
       if (countSnap.exists()) {
         setVisitorCount(countSnap.data.count);
-        await updateDoc(countRef, { count: countSnap.data.count + 1});
       } else {
-        await setDoc(countRef, { count : 1});
-        setVisitorCount(1);
+        await setDoc(countRef, { count : 0});
       }
     };
 
@@ -44,10 +42,21 @@ function Home() {
     }
   };
 
-  const handleStart = () => {
+  const handleStart = async () => {
     if(nickname) {
       sessionStorage.setItem("nickname", nickname);
       navigate("/1");
+
+      const countRef = doc(db, "stats", "visitorCount");
+      const countSnap = await getDoc(countRef);
+
+      if(countSnap.exists()) {
+        await updateDoc(countRef, { count : countSnap.data().count + 1});
+        setVisitorCount(countSnap.data().count + 1);
+      } else {
+        await setDoc(countRef, {count : 1});
+        setVisitorCount(1);
+      }
     }
   };
 
