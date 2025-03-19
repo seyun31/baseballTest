@@ -79,6 +79,18 @@ const ChoiceList = styled.select`
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+
+    /* 모바일에서 중앙 정렬 */
+    @media (max-width: 390px) {
+        text-indent: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 노트북에서는 정상적으로 보이도록 */
+    @media (min-width: 391px) {
+        text-indent: 0;
+        transform: none;
+    }
 `;
 
 const NextButton = styled.button`
