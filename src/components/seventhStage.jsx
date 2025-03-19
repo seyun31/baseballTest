@@ -68,28 +68,32 @@ const ChoiceList = styled.select`
     color: black;
     font-family: Inter, sans-serif;
     font-size: 22px;
-    text-align: center;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     margin-left: 16px;
     margin-bottom: 42px;
+    padding-left: 10px; /* 왼쪽 정렬 방지 */
 
     /* 기본 화살표 제거 */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 
-    /* 모바일에서 중앙 정렬 */
-    @media (max-width: 390px) {
-        text-indent: 50%;
-        transform: translateX(-50%);
+    /* 글자 중앙 정렬 */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    /* iOS에서 중앙 정렬 강제 적용 */
+    &::-webkit-select-placeholder {
+        text-align: center;
     }
 
-    /* 노트북에서는 정상적으로 보이도록 */
-    @media (min-width: 391px) {
-        text-indent: 0;
-        transform: none;
+    /* 모바일에서 강제 중앙 정렬 */
+    @media (max-width: 768px) {
+        padding-left: 0;
+        text-align-last: center;
     }
 `;
 
