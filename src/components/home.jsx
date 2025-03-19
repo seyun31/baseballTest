@@ -1,4 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.js";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
@@ -7,8 +9,26 @@ import shareImage from "../assets/share.png";
 
 function Home() {
   const [nickname, setNickname] = useState("");
+  const [visitorCount, setVisitorCount] = useState(0);
   const inputRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchVisitorCount = async () => {
+      const countRef = doc(db, "stats", "visitorCount");
+      const countSnap = await getDoc(countRef);
+
+      if (countSnap.exists()) {
+        setVisitorCount(countSnap.data.count);
+        await updateDoc(countRef, { count: countSnap.data.count + 1});
+      } else {
+        await setDoc(countRef, { count : 1});
+        setVisitorCount(1);
+      }
+    };
+
+    fetchVisitorCount();
+  }, []);
 
   const handleInputChange = (e) => {
     const newNickname = e.target.value;
@@ -54,7 +74,7 @@ function Home() {
         onClick={handleInputClick}
       />
       <StartButton disabled={!nickname} onClick={handleStart}>시작하기</StartButton>
-      <CountParticipants>참여자수 | 230,200 명</CountParticipants>
+      <CountParticipants>참여자수 | {visitorCount} 명</CountParticipants>
       <ShareTitle>테스트 공유하기 🔗</ShareTitle>
       <ShareImage src={shareImage} alt="공유하기 이미지" onClick={handleShareClick} />
     </>
