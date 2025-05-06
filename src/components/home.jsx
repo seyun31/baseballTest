@@ -4,7 +4,7 @@ import { db } from "../firebase.js";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
 import GlobalStyle from "../style/GlobalStyle"
-import mainImage from "../assets/baseball.png";
+import mainImage from "../assets/Baseball.png";
 import shareImage from "../assets/share.png";
 
 function Home() {
