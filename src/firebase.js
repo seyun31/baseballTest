@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 // Firebase 설정 (Firebase 콘솔에서 가져온 값 입력)
+// commit Test
 const firebaseConfig = {
     apiKey: "AIzaSyA1CjE5iIJuDOCjklnaRPe0ITmChtn-Q8w",
     authDomain: "baseballtest-visitor-tra-9043f.firebaseapp.com",
